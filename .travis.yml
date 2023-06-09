@@ -2,7 +2,8 @@ language: java
 jdk:
   - openjdk8
 
-script: sudo ./mvnw clean install
+script: sudo -i
+        ./mvnw clean install
 
 notifications:
   email: spavanraj97@gmail.com
