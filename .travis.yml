@@ -2,8 +2,14 @@ language: java
 jdk:
   - openjdk8
 
-script: sudo -i
-        ./mvnw clean install
+install:
+  - wget https://apache.osuosl.org/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz
+  - tar xzf apache-maven-3.6.2-bin.tar.gz
+  - export M2_HOME=$PWD/apache-maven-3.6.2
+  - export PATH=$M2_HOME/bin:$PATH
+
+script:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 notifications:
   email: spavanraj97@gmail.com
